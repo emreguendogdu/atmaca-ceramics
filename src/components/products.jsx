@@ -17,7 +17,7 @@ export default async function Products({ page = "/" }) {
           {products.map((product) => (
             <Link
               href={`/collections/${product.slug.current}`}
-              className="relative w-[calc(50%-8px)] md:w-[calc(50%-16px)] h-[200px] md:h-[400px]"
+              className="relative w-[calc(50%-8px)] md:w-[calc(33%-16px)] h-[200px] md:h-[300px]"
               key={product.slug.current}
             >
               <li className="relative w-full h-full overflow-hidden">
@@ -44,18 +44,18 @@ export default async function Products({ page = "/" }) {
     )
   }
   return (
-    <section id="products" className="relative py-10">
-      <div className="absolute w-full h-full inset-0 bg-gradient bg-cover bg-center brightness-50 -z-10" />
+    <section id="products" className="relative pt-10 pb-20">
+      <div className="absolute w-full h-full inset-0 bg-gray-800 bg-cover bg-center -z-10" />
       <div className="px-6 pb-4">
         <h2 className="text-white drop-shadow-text">
           Markana neler katabilirsin?
         </h2>
       </div>
-      <ul className="px-3 md:px-6 flex flex-wrap gap-2 md:gap-4 relative">
+      <ul className="px-3 md:px-6 flex justify-center flex-wrap gap-2 md:gap-4 relative">
         {products.map((product) => (
           <Link
             href={`/collections/${product.slug.current}`}
-            className="relative w-[calc(50%-8px)] md:w-[calc(50%-16px)] h-[200px] md:h-[400px]"
+            className="relative w-[calc(50%-8px)] md:w-[calc(33%-16px)] h-[200px] md:h-[350px]"
             key={product.slug.current}
           >
             <li className="relative w-full h-full overflow-hidden">
@@ -71,7 +71,7 @@ export default async function Products({ page = "/" }) {
                   .blur(10)
                   .url()}
                 alt={product.title}
-                className="rounded-img bg-gray-500 hover:scale-105 hover:brightness-95 transition-transform"
+                className="rounded-img bg-gray-500 hover:scale-105 hover:brightness-95 transition-transform duration-500"
                 fill
               />
             </li>
