@@ -29,7 +29,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className={`h-screen relative ${ClashDisplay.variable} font-clashdisplay`}
+      className={`h-screen relative ${ClashDisplay.variable} font-clashdisplay mt-10 md:mt-0`}
     >
       <div className="absolute inset-0 -z-10 brightness-90">
         <Image

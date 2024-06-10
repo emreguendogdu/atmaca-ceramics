@@ -3,7 +3,7 @@ import CTA from "./cta"
 
 export default function About() {
   return (
-    <section className="flex flex-col-reverse md:flex-row md:[&>div]:flex-1 gap-8 md:py-sectionPadding">
+    <section className="flex flex-col-reverse md:flex-row md:[&>div]:flex-1 gap-8 pb-10 md:py-sectionPadding">
       <div className="flex flex-col gap-8 px-8">
         <span className="section-info">Hakkımızda</span>
         <h2 className="font-bold">
