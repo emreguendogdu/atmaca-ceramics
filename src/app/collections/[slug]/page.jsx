@@ -1,11 +1,14 @@
 import Image from "next/image"
-import { collections } from "../../../../contents/collections"
 import Header from "@/components/header/header"
 import Footer from "@/components/footer"
+import { getProducts } from "../../../../sanity/lib/client"
+import { PRODUCTS_QUERY, urlFor } from "@/utils/sanityUtils"
 
-export function getStaticPaths() {
-  const paths = collections.map((product) => ({
-    params: { slug: product.slug },
+export async function getStaticPaths() {
+  const products = await getProducts({ query: PRODUCTS_QUERY })
+
+  const paths = products.map((product) => ({
+    params: { slug: product.slug.current },
   }))
 
   return {
@@ -14,23 +17,46 @@ export function getStaticPaths() {
   }
 }
 
-export function generateMetadata({ params }) {
-  const product = collections.find((product) => params.slug === product.slug)
+export async function generateMetadata({ params }) {
+  const products = await getProducts({ query: PRODUCTS_QUERY })
+  const product = products.find(
+    (product) => params.slug === product.slug.current
+  )
   return {
     title: product.title,
   }
 }
 
-export default function Page({ params }) {
-  const product = collections.find((product) => params.slug === product.slug)
+export default async function Page({ params }) {
+  const products = await getProducts({ query: PRODUCTS_QUERY })
+  const product = products.find(
+    (product) => params.slug === product.slug.current
+  )
   const { title, description, headerImg, gridImgs, bannerImg } = product
+
+  if (!headerImg || !gridImgs || !bannerImg) {
+    return (
+      <>
+        <Header />
+        <section className="py-sectionPadding px-8 flex flex-col gap-12 md:gap-32">
+          <div className="flex flex-col gap-2 justify-end max-w-screen-md">
+            <h1>{title}</h1>
+            <p>{description}</p>
+          </div>
+        </section>
+        <Footer />
+      </>
+    )
+  }
   return (
     <>
       <Header />
-      <section className="pt-20 px-8 flex flex-col gap-12 md:gap-32">
-        <header className="flex flex-col gap-4 md:flex-row">
+      <section className="pt-sectionPadding pb-10 px-8 flex flex-col gap-12 md:gap-20">
+        <div className="flex flex-col gap-4 md:flex-row">
           <Image
-            src={headerImg}
+            src={urlFor(headerImg).url()}
+            placeholder="blur"
+            blurDataURL={urlFor(headerImg).width(24).height(24).blur(10).url()}
             alt={title}
             className="rounded-img"
             width={400}
@@ -40,21 +66,41 @@ export default function Page({ params }) {
             <h1>{title}</h1>
             <p>{description}</p>
           </div>
-        </header>
-        <ul className="flex flex-wrap gap-4 [&>li]:w-[calc(33%-16px)]">
+        </div>
+        <ul className="flex flex-wrap gap-2 justify-center md:gap-4 [&>li]:w-[calc(50%-8px)] [&>li]:h-[200px] md:[&>li]:w-[calc(33%-16px)] md:[&>li]:h-[400px]">
           {gridImgs?.map((gridImg, index) => (
-            <li key={index} className="relative w-40 h-[400px]">
-              <Image src={gridImg} alt={title} className="rounded-img" fill />
+            <li key={index} className="relative w-full h-full">
+              <Image
+                src={urlFor(gridImg).url()}
+                placeholder="blur"
+                blurDataURL={urlFor(gridImg)
+                  .width(24)
+                  .height(24)
+                  .blur(10)
+                  .url()}
+                alt={title}
+                className="rounded-img"
+                fill
+              />
             </li>
           ))}
         </ul>
         <div className="relative w-full h-[400px]">
-          <Image
-            src={bannerImg}
-            alt={`${title}`}
-            className="rounded-img"
-            fill
-          />
+          <div className="absolute -top-4 border-[.5px] w-full border-gray-300" />
+          <div>
+            <Image
+              src={urlFor(bannerImg).url()}
+              placeholder="blur"
+              blurDataURL={urlFor(bannerImg)
+                .width(24)
+                .height(24)
+                .blur(10)
+                .url()}
+              alt={`${title}`}
+              className="rounded-img"
+              fill
+            />
+          </div>
         </div>
       </section>
       <Footer />

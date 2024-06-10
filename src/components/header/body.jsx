@@ -26,7 +26,7 @@ const getChars = (title) => {
 
 export default function Body({ links, selectedLink, setSelectedLink }) {
   return (
-    <div className="flex flex-wrap [&_a]:text-black [&_a]:text-3xl [&_a]:font-light [&_a]:pl-2 [&_a]:pt-8 [&_a]:uppercase [&_a]:overflow-hidden [&_p]:flex max-w-screen-xl gap-4">
+    <div className="flex flex-col md:flex-row flex-wrap [&_a]:text-black [&_a]:text-3xl [&_a]:font-light [&_a]:pl-2 [&_a]:pt-8 [&_a]:uppercase [&_a]:overflow-hidden [&_p]:flex max-w-screen-xl gap-4">
       {links.map((link, index) => {
         const { title, href } = link
         return (

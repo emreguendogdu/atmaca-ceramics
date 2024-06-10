@@ -21,6 +21,9 @@ module.exports = {
       dropShadow: {
         text: "1px 1px 2px rgba(0,0,0, 0.5)",
       },
+      padding: {
+        sectionPadding: "92px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

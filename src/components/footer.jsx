@@ -7,7 +7,7 @@ import { brandName } from "../../contents/links"
 export default function Footer() {
   return (
     <footer className="md:pt-10">
-      <div className="p-10">
+      <div className="p-3 md:p-10">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="w-full md:w-[40%]">
             <div id="logo" className="h-[150px] relative">
@@ -56,12 +56,7 @@ export default function Footer() {
             <Socials />
           </div>
           <div className="w-[60%] flex justify-end items-center">
-            <span className="text-sm text-end">
-              ® 2024 {brandName} | Design by{" "}
-              <Link target="_blank" href="https://osmangund.tech">
-                osmangund®
-              </Link>
-            </span>
+            <span className="text-sm text-end">® 2024 {brandName}</span>
           </div>
         </div>
       </div>

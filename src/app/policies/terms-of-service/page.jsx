@@ -11,7 +11,7 @@ export default function page() {
   return (
     <>
       <Header />
-      <section className="flex flex-col gap-4 pt-20 px-20">
+      <section className="flex flex-col gap-4 py-sectionPadding px-20">
         <h1>Kullanım Koşulları</h1>
         <p>
           Son güncellenme: 07/06/2024 Sevgili ziyaretçimiz, lütfen

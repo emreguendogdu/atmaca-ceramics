@@ -1,18 +1,16 @@
 import Footer from "@/components/footer"
 import Header from "@/components/header/header"
+import Products from "@/components/products"
 
 export const metadata = {
-  title: "Hakkımızda",
+  title: "Koleksiyonlar",
 }
 
-export default function page() {
+export default async function page() {
   return (
     <>
       <Header />
-      <section
-        id="hakkimizda"
-        className="min-h-[50vh] flex px-10 py-sectionPadding"
-      ></section>
+      <Products page="/collections" />
       <Footer />
     </>
   )

@@ -10,7 +10,7 @@ export default function CTA({
   if (type === "outline") {
     return (
       <Link href={link}>
-        <div className="px-8 py-2 border border-black bg-transparent rounded-3xl w-fit hover:bg-primary hover:text-black hover:tracking-wide transition-all">
+        <div className="py-1 px-4 md:px-8 md:py-2 border border-black bg-transparent rounded-3xl w-fit hover:bg-primary hover:text-black hover:tracking-wide transition-all">
           <span className="text-sm capitalize">{text}</span>
         </div>
       </Link>

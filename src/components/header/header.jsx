@@ -11,7 +11,7 @@ import { background } from "./anim"
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
   return (
-    <header className="fixed top-0 w-full py-4 px-8 z-30 bg-background">
+    <header className="fixed top-0 left-0 right-0 py-4 px-8 z-30 bg-background">
       <section id="bar" className="flex w-full justify-between">
         <Link href="/">
           <div id="logo" className="h-full w-20 relative">

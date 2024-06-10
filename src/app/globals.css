@@ -19,7 +19,7 @@
 
 @layer components {
   .section-info {
-    @apply font-extralight;
+    @apply font-extralight text-sm;
   }
   .btn {
     @apply px-4 py-2 bg-blue-600 text-white rounded-md;

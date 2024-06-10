@@ -5,8 +5,8 @@ import RocketIcon from "./icons/rocket"
 
 export default function Process() {
   return (
-    <section className="py-20 md:py-32 px-8 md:px-20 flex flex-col gap-20 items-center bg-shade5">
-      <div className="flex flex-col text-center gap-6 max-w-screen-sm">
+    <section className="py-sectionPadding md:py-32 px-8 md:px-20 flex flex-col gap-12 md:gap-20 items-center bg-shade5">
+      <div className="flex flex-col text-center gap-3 md:gap-6 max-w-screen-sm">
         <span className="section-info">Süreç</span>
         <h2>Süreç nasıl işliyor?</h2>
         <p>

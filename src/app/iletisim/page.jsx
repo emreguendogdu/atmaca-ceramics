@@ -15,9 +15,9 @@ export default function page() {
       <Header />
       <section
         id="iletisim"
-        className="min-h-screen pt-32 px-12 text-center flex flex-col md:flex-row gap-4"
+        className="min-h-screen py-sectionPadding px-2 md:px-12 text-center flex flex-col md:flex-row gap-4"
       >
-        <div className="w-3/5 flex flex-col gap-4 flex-1">
+        <div className="md:w-3/5 flex flex-col gap-4 flex-1">
           <h1>İletişim</h1>
           <p>
             Formu doldur ya da diğer iletişim kanallarından bize ulaş, 48 saat
@@ -37,14 +37,14 @@ export default function page() {
             <textarea
               type="text"
               placeholder="Mesaj"
-              className="bg-gray-100 p-4 rounded-lg w-full h-[400px]"
+              className="bg-gray-100 p-4 rounded-lg w-full min-h-[200px] md:min-h-[400px]"
             />
             <button className="w-full bg-black text-white rounded-lg py-4">
               Gönder
             </button>
           </form>
         </div>
-        <ul className="w-2/5 flex flex-col gap-4 text-center items-center [&>li]:flex [&>li]:flex-col [&>li]:gap-3">
+        <ul className="md:w-2/5 flex flex-col md:gap-4 gap-8 text-center items-center [&>li]:flex [&>li]:flex-col [&>li]:gap-3">
           <li>
             <h2>Mail</h2>
             <Link
